@@ -53,5 +53,5 @@ install: $(OBJS)
 	$(INSTALL_DATA) $(SRCS) $(OBJS) $(INSTALL_PATH)
 
 uninstall:
-	rm -f $(addprefix $(INSTALL_PATH)/, $(SRCS) $(OBJS))
+	rm -f $(addprefix $(INSTALL_PATH)/, $(notdir $(SRCS) $(OBJS)))
 
