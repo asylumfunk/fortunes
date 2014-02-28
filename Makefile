@@ -1,6 +1,4 @@
 #!/usr/bin/make -f
-PACKAGE=fortune-maker
-VERSION=0.1
 
 SHELL=/bin/sh
 STRFILE=strfile
@@ -13,7 +11,7 @@ OBJ_DIR=./build
 OBJ_EXT=dat
 OBJS=$(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%.$(OBJ_EXT),$(SRCS))
 
-DIST_DIR=$(PACKAGE)_$(VERSION)
+DIST_DIR=fortunes
 DIST_OBJ=$(DIST_DIR).tar.gz
 TARFLAGS=-vca
 
@@ -39,9 +37,7 @@ clean:
 dist: $(DIST_OBJ)
 $(DIST_OBJ): $(OBJS)
 	mkdir $(DIST_DIR)
-	mkdir $(DIST_DIR)/fortunes
-	cp -t $(DIST_DIR) README
-	cp -t $(DIST_DIR)/fortunes $(SRCS) $(OBJS)
+	cp -t $(DIST_DIR) $(SRCS) $(OBJS)
 	tar $(TARFLAGS) -f $(DIST_OBJ) $(DIST_DIR)
 	rm -fr $(DIST_DIR)
 
