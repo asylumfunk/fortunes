@@ -5,7 +5,7 @@ STRFILE=strfile
 STRFILEFLAGS=-c '%'
 
 SRC_DIR=./src
-SRCS=$(wildcard $(SRC_DIR)/*)
+SRCS=$(filter-out $(SRC_DIR)/README, $(wildcard $(SRC_DIR)/*))
 
 OBJ_DIR=./build
 OBJ_EXT=dat
