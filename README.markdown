@@ -36,4 +36,8 @@ Makefile Targets
 - `make uninstall`
 	- uninstall fortunes
 
+External References
+-------------------
+- [Fortune (Wikipedia)](https://en.wikipedia.org/wiki/Fortune_(Unix))
+- [Makefile Conventions](https://www.gnu.org/prep/standards/html_node/Makefile-Conventions.html)
 
