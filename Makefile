@@ -62,8 +62,9 @@ distclean: clean
 installdirs: | $(INSTALL_PATH)
 $(INSTALL_PATH):
 	$(INSTALL_DIR) $(INSTALL_PATH)
-install: installdirs $(OBJS)
-	$(INSTALL_DATA) $(SRCS) $(OBJS) $(INSTALL_PATH)
+install: installdirs $(addprefix $(INSTALL_PATH)/, $(notdir $(OBJS)))
+$(INSTALL_PATH)/%.$(OBJ_EXT): $(OBJ_DIR)/%.$(OBJ_EXT)
+	$(INSTALL_DATA) $< $(SRC_DIR)/$(patsubst %.$(OBJ_EXT),%,$(notdir $<)) $(INSTALL_PATH)
 
 uninstall:
 	rm -f $(addprefix $(INSTALL_PATH)/, $(notdir $(SRCS) $(OBJS)))
