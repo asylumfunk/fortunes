@@ -27,7 +27,8 @@ OBJ_EXT=dat
 OBJS=$(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%.$(OBJ_EXT),$(SRCS))
 
 DIST_DIR=fortunes
-DIST_OBJ=$(DIST_DIR).tar.gz
+DIST_EXT=.tar.gz
+DIST_OBJ=$(DIST_DIR)$(DIST_EXT)
 TARFLAGS=-vca
 
 prefix=/usr
