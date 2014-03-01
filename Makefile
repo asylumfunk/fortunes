@@ -51,8 +51,7 @@ clean:
 
 dist: $(DIST_OBJ)
 $(DIST_OBJ): $(OBJS)
-	mkdir $(DIST_DIR)
-	cp -t $(DIST_DIR) $(SRCS) $(OBJS)
+	make INSTALL_PATH=$(DIST_DIR) install
 	tar $(TARFLAGS) -f $(DIST_OBJ) $(DIST_DIR)
 	rm -fr $(DIST_DIR)
 
