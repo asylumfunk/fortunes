@@ -59,8 +59,10 @@ $(DIST_OBJ): $(OBJS)
 distclean: clean
 	rm -f $(DIST_OBJ)
 
-install: $(OBJS)
+installdirs: | $(INSTALL_PATH)
+$(INSTALL_PATH):
 	$(INSTALL_DIR) $(INSTALL_PATH)
+install: installdirs $(OBJS)
 	$(INSTALL_DATA) $(SRCS) $(OBJS) $(INSTALL_PATH)
 
 uninstall:
